@@ -1,0 +1,75 @@
+{
+  "name": "@nozbe/lokijs",
+  "version": "1.5.12-wmelon6",
+  "description": "Nozbe's fork of LokiJS, optimized for WatermelonDB",
+  "homepage": "https://techfort.github.io/LokiJS/",
+  "main": "src/lokijs.wmelon.js",
+  "directories": {
+    "example": "examples"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nozbe/LokiJS.git"
+  },
+  "keywords": [
+    "javascript",
+    "document-oriented",
+    "mmdb",
+    "json",
+    "nosql",
+    "lokijs",
+    "in-memory",
+    "indexeddb"
+  ],
+  "files": [
+    "src",
+    "build"
+  ],
+  "scripts": {
+    "lint": "jshint src",
+    "test:browser": "karma start karma.conf.js --single-run",
+    "test:node": "istanbul cover --dir coverage/nodejs node_modules/jasmine/bin/jasmine.js",
+    "pretest": "npm run lint",
+    "test": "npm run test:browser && npm run test:node",
+    "build:lokijs": "uglifyjs src/lokijs.js -cm > build/lokijs.min.js",
+    "build:wmelon": "./watermelonSkipper && uglifyjs src/lokijs.wmelon.js -cm > build/lokijs.wmelon.min.js",
+    "build:indexedAdapter": "uglifyjs src/loki-indexed-adapter.js > build/loki-indexed-adapter.min.js",
+    "build": "npm run build:lokijs && npm run build:indexedAdapter",
+    "postbuild": "",
+    "prepublish": "",
+    "clean": "rimraf build/* coverage/* node_modules",
+    "pour:beer": "echo New npm version published, one beer for you !",
+    "jsdoc": "./node_modules/.bin/jsdoc -c jsdoc-conf.json",
+    "benchmark": "node benchmark/benchmark"
+  },
+  "author": "Joe Minichino <joe.minichino@gmail.com>",
+  "contributors": [
+    {
+      "name": "Dave",
+      "email": "github@obeliskos.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/techfort/LokiJS/issues"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.4",
+    "jasmine": "^2.4.1",
+    "jsdoc": "^3.5.5",
+    "jshint": "^2.9.2",
+    "karma": "^1.1.2",
+    "karma-cli": "^1.0.1",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "mocha": "^2.5.3",
+    "phantomjs": "^1.9.20",
+    "rimraf": "^2.5.4",
+    "should": "^4.6.5",
+    "uglify-js": "^2.7.0"
+  }
+}

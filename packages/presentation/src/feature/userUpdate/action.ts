@@ -1,0 +1,11 @@
+export enum REQUEST_UPDATE_DATA {
+    MAKE_REQUEST = 'MAKE_REQUEST',
+    REQUEST_UPDATE_DATA_SUCCESS = 'REQUEST_UPDATE_DATA_SUCCESS',
+    REQUEST_UPDATE_DATA_FAILURE = 'REQUEST_UPDATE_DATA_FAILURE'
+  }
+  
+  export const userUpdateDataRequest = params => ({
+    type: REQUEST_UPDATE_DATA.MAKE_REQUEST,
+    params
+  })
+ 

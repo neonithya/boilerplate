@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./lib"
+  },
+  "include": [
+    "./src",
+    "../mobile/src/di/appIntilizer.ts",
+    "../mobile/src/di/Barservice.ts",
+    "../mobile/src/di/fooservice.ts",
+    "../mobile/src/di/baseclass.ts"
+  ]
+}
